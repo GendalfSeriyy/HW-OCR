@@ -20,6 +20,10 @@ class CNN(nn.Module):
 
     def __init__(self, channel_size):
         super(CNN, self).__init__()
+        
+        #imgH has to be a 64
+        #TODO universal network
+        
         self.cnn = nn.Sequential(
                       nn.Conv2d(channel_size, 64, 3, 1, 1), nn.ReLU(True), nn.MaxPool2d(2, 2),
                       nn.Conv2d(64, 128, 3, 1, 1), nn.ReLU(True), nn.MaxPool2d(2, 2),

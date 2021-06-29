@@ -26,7 +26,9 @@ class ImageDataset(data.Dataset):
     rescale_size : tuple of ints
         Size of image to rescale to.
     padding_size : tuple of ints
-        Size of padding.
+        Size of result image after padding.
+    aug_prob : float
+        Probability of using elastic transform to the image example.
 
     """
 

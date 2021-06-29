@@ -122,15 +122,7 @@ class Trainer():
         else:
             self.test2_iterator = DataLoader(dataset=test2_dataset, batch_size=self.batch_size, 
                                          shuffle=True, num_workers=self.num_workers, drop_last = True)
-        '''
-        with open(self.train_dataset['pickle_file'], 'rb') as f:
-            full_dataset = pickle.load(f)
-        alphabet = ''
-        for example in full_dataset:
-            alphabet += example['description']
-        alphabet = list(set(alphabet))
-        self.alphabet =''.join(alphabet)
-        '''
+
         self.alphabet = 'Й(З–ЫпС)мгБитВл-ПвцЧйЮ хМжЯқсH;фөонД,Жo.?Раур!:ИкЕб—юёЛЬзХТЭщэОечК…яШГыУшӨдьҚАН'
         if self.model_params['name'] == 'CRNN' or self.model_params['name'] == 'FCNN':
             self.converter = strLabelConverter(self.alphabet)
@@ -468,14 +460,12 @@ class Trainer():
         if load_policy == 'best':
             if trainer.model is not None:
                 trainer.model = torch.load(os.path.join(load_folder, "model"), map_location=device)
-                #trainer.model.load_state_dict(torch.load(os.path.join(load_folder, "model_state_dict"), map_location=device))
             else:
                 trainer.encoder = torch.load(os.path.join(load_folder, "encoder"), map_location=device)
                 trainer.decoder = torch.load(os.path.join(load_folder, "decoder"), map_location=device)
         elif load_policy == 'last':
             if trainer.model is not None:
                 trainer.model = torch.load(os.path.join(load_folder, "model_last"), map_location=device)
-                #trainer.model.load_state_dict(torch.load(os.path.join(load_folder, "model_last_state_dict"), map_location=device))
             else:
                 trainer.encoder = torch.load(os.path.join(load_folder, "encoder_last"), map_location=device)
                 trainer.decoder = torch.load(os.path.join(load_folder, "decoder_last"), map_location=device)

@@ -39,7 +39,7 @@ class CRNN(nn.Module):
 
     def __init__(self, imgH, nc, nclass, nh, n_rnn=2, leakyRelu=False, *args, **kwargs):
         super(CRNN, self).__init__()
-        assert imgH % 16 == 0, 'imgH has to be a multiple of 16'
+        assert imgH % 64 == 0, 'imgH has to be a 64' #TODO universal network
 
         cnn = nn.Sequential()
 
@@ -93,8 +93,3 @@ class CRNN(nn.Module):
         output = F.log_softmax(output, dim=2)
 
         return output
-
-
-    def backward_hook(self, module, grad_input, grad_output):
-        for g in grad_input:
-            g[g != g] = 0   # replace all nan/inf in gradients to zero
