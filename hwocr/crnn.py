@@ -39,7 +39,8 @@ class CRNN(nn.Module):
 
     def __init__(self, imgH, nc, nclass, nh, n_rnn=2, leakyRelu=False, *args, **kwargs):
         super(CRNN, self).__init__()
-        assert imgH % 64 == 0, 'imgH has to be a 64' #TODO universal network
+
+        # imgH has to be a 64 TODO universal network
 
         cnn = nn.Sequential()
 
