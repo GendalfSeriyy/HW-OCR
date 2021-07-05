@@ -1,20 +1,6 @@
 import torch.nn as nn
-import numpy as np
-import cv2
 import torch
 import torch.nn.functional as F
-import math
-import pandas as pd
-import PIL.Image as Image
-from torchvision.transforms import ToTensor, ToPILImage
-import torch.nn.functional as F
-import segmentation_models_pytorch as smp
-from collections import OrderedDict
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torchvision
-from torch.nn import CTCLoss
 
 
 class BidirectionalLSTM(nn.Module):
