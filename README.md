@@ -7,3 +7,6 @@ HKR dataset (https://github.com/abdoelsayed2016/HKR_Dataset) is used to train an
 Model weights can be found in the pretrained models folder.
 Examples of jupyter notebooks for training models are located in the Notebooks folder.
 Example for testing models is located in Notebook/test.ipynb
+TODO:
+Universal models for any shape
+Transformer approach
